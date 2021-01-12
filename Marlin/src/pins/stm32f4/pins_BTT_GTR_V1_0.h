@@ -50,6 +50,15 @@
 #define PS_ON_PIN                           PH6
 
 //
+// M3/M4/M5 - Spindle/Laser Control
+                     // Use servo connector if possible
+
+    #define SPINDLE_LASER_PWM_PIN    PE5 //  fan 2 stopped working.  so NOW is Fan 0 
+    #define SPINDLE_LASER_ENA_PIN    PB0  // tried Heater2 to prevent needing vLevelTransaltion  //PI10   Extension 2: used 6.8k pull down... Pullup or pulldown!
+
+//
+
+//
 // Trinamic Stallguard pins
 //
 #define X_DIAG_PIN                          PF2   // X-
@@ -114,11 +123,11 @@
 //
 // Steppers
 //
-#define X_STEP_PIN                          PD6  // <-E1 / X ->PC15  
-#define X_DIR_PIN                          PD5   // X -> PF0  
-#define X_ENABLE_PIN                        PD7   //     PF1
+#define X_STEP_PIN                          PC15  // <-E1 + PD6 / X ->PC15  
+#define X_DIR_PIN                          PF0   // E1 = PD5 / X -> PF0  
+#define X_ENABLE_PIN                        PF1   // E1 = PD7 / X ->    PF1
 #ifndef X_CS_PIN
-  #define X_CS_PIN                          PD4   // PC14
+  #define X_CS_PIN                          PC14   // E1 = PD4 /X = PC14 /  
 #endif
 
 #define Y_STEP_PIN                          PE3
@@ -143,14 +152,13 @@
 #endif
 
 // Trying to see if 'X' socket is bad //
-/*
 #define E1_STEP_PIN                         PD6
 #define E1_DIR_PIN                          PD5
 #define E1_ENABLE_PIN                       PD7
 #ifndef E1_CS_PIN
   #define E1_CS_PIN                         PD4
 #endif
-*/
+
 
 #define E2_STEP_PIN                         PD1
 #define E2_DIR_PIN                          PD0
@@ -272,6 +280,7 @@
 #endif
 
 //
+//
 // Temperature Sensors
 //
 #define TEMP_0_PIN                          PC1   // T1 <-> E0
@@ -305,7 +314,8 @@
 //
 #define HEATER_0_PIN                        PB1   // Heater0
 #define HEATER_1_PIN                        PA1   // Heater1
-#define HEATER_2_PIN                        PB0   // Heater2
+//Using Heater_2_pin for Laser Enable
+//#define HEATER_2_PIN                        PB0   // Heater2
 
 #define HEATER_3_PIN                        PD15  // Heater3
 #define HEATER_4_PIN                        PD13  // Heater4
@@ -315,8 +325,10 @@
 
 #define HEATER_BED_PIN                      PA2   // Hotbed
 
-#define FAN_PIN                             PE5   // Fan0
+// use as Laser PWM
+//#define FAN_PIN                             PE5   // Fan0
 #define FAN1_PIN                            PE6   // Fan1
+
 #define FAN2_PIN                            PC8   // Fan2
 
 #define FAN3_PIN                            PI5   // Fan3
