@@ -1,3 +1,11 @@
+// Modified Marlin for my 'Genesis One' Project
+Motherboard:  BTT GTR v1.0 '
+daughterboard: BTT GTR Expansion M5 v1.0
+Drivers: TMC5160s
+
+
+
+
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
