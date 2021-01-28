@@ -53,8 +53,8 @@
 // M3/M4/M5 - Spindle/Laser Control
                      // Use servo connector if possible
 
-    #define SPINDLE_LASER_PWM_PIN    PE5 //  fan 2 stopped working.  so NOW is Fan 0 
-    #define SPINDLE_LASER_ENA_PIN    PB0  // tried Heater2 to prevent needing vLevelTransaltion  //PI10   Extension 2: used 6.8k pull down... Pullup or pulldown!
+    #define SPINDLE_LASER_PWM_PIN    PI5 //   Expansion Board M5:  PI5 ->Fan_M1 'Fan3
+    #define SPINDLE_LASER_ENA_PIN    PI11 //     'Extended Interface 2 on Main Board' : used 6.8k pull down... Pullup or pulldown!
 
 //
 
@@ -314,10 +314,10 @@
 //
 #define HEATER_0_PIN                        PB1   // Heater0
 #define HEATER_1_PIN                        PA1   // Heater1
-//Using Heater_2_pin for Laser Enable
-//#define HEATER_2_PIN                        PB0   // Heater2
 
-#define HEATER_3_PIN                        PD15  // Heater3
+#define HEATER_2_PIN                        PB0   // Heater2
+//Using Heater_3_pin for Laser Enable
+//#define HEATER_3_PIN                        PD15  // Heater3
 #define HEATER_4_PIN                        PD13  // Heater4
 #define HEATER_5_PIN                        PD12  // Heater5
 #define HEATER_6_PIN                        PE13  // Heater6
@@ -326,12 +326,14 @@
 #define HEATER_BED_PIN                      PA2   // Hotbed
 
 // use as Laser PWM
-//#define FAN_PIN                             PE5   // Fan0
-#define FAN1_PIN                            PE6   // Fan1
+#define FAN_PIN                             PE5   // Fan0
+#define FAN1_PIN                            PE6   // Fan1  using for spindle pwm
 
 #define FAN2_PIN                            PC8   // Fan2
 
-#define FAN3_PIN                            PI5   // Fan3
+
+// M5 expansion
+//#define FAN3_PIN                            PI5   // Fan3
 #define FAN4_PIN                            PE9   // Fan4
 #define FAN5_PIN                            PE11  // Fan5
 //#define FAN6_PIN                          PC9   // Fan6
